@@ -1,0 +1,9 @@
+body {
+ text-align: center;
+ background-color: #2ca9e1;
+ color: #fff;
+}
+
+body section {
+ padding: 2em;
+}
