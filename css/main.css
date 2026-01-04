@@ -1,6 +1,10 @@
+:root {
+    --bg-color: #2ca9e1;
+}
+
 body {
     text-align: center;
-    background-color: #2ca9e1;
+    background-color: var(--bg-color);
     color: #fff;
 }
 
