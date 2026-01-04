@@ -2,6 +2,7 @@ const defaultColors = ['#2ca9e1', '#2859e0ff', '#1a86cdff', '#13d6f8ff', '#2dff9
 
 window.addEventListener('DOMContentLoaded', () => {
   const direction = initRgbDirection();
+  const interval = initInterval();
 
   const randomColor = defaultColors[Math.floor(Math.random() * defaultColors.length)];
   let currentRgb = hexToRGB(randomColor);
@@ -11,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     calcRGB(currentRgb, direction);
     setBackgroundColor(currentRgb);
-  }, 1000);
+  }, interval);
 });
 
 function initRgbDirection() {
@@ -22,10 +23,15 @@ function initRgbDirection() {
   };
 }
 
+function initInterval() {
+  return Math.floor(Math.random() * 900) + 100;
+}
+
 function calcRGB(currentRgb, direction) {
-  currentRgb.r += direction.r * (Math.floor(Math.random() * 5) + 1);
-  currentRgb.g += direction.g * (Math.floor(Math.random() * 5) + 1);
-  currentRgb.b += direction.b * (Math.floor(Math.random() * 5) + 1);
+  const maxChange = 5;
+  currentRgb.r += direction.r * (Math.floor(Math.random() * maxChange) + 1);
+  currentRgb.g += direction.g * (Math.floor(Math.random() * maxChange) + 1);
+  currentRgb.b += direction.b * (Math.floor(Math.random() * maxChange) + 1);
 
   const elementMax = 204;
   if (currentRgb.r <= 0 || currentRgb.r >= elementMax) {
